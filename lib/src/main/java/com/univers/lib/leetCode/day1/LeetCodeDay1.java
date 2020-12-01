@@ -25,7 +25,7 @@ public class LeetCodeDay1 {
         System.out.println(Arrays.toString(twoSum(new int[]{2,9,7,11},13)));
     }
 
-    public static int[] twoSum(int[] nums, int target) throws Exception {
+    public static int[] twoSum(int[] nums, int target){
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(target - nums[i])){
@@ -33,6 +33,6 @@ public class LeetCodeDay1 {
             }
             map.put(nums[i],i);
         }
-        throw new Exception("no data fit");
+        throw new IllegalArgumentException("no data fit");
     }
 }
