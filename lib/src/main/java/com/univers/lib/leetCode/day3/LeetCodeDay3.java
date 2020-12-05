@@ -27,7 +27,7 @@ public class LeetCodeDay3 {
             return false;
         }
 
-        int length = s.length() /2;
+        int length = s.length() / 2;
         for (int i = 0; i < length; i++) {
             s = s.replace("()", "").replace("[]", "").replace("{}", "");
         }
@@ -35,21 +35,49 @@ public class LeetCodeDay3 {
     }
 
     public static boolean isValid2(String s) {
-        if(s.isEmpty())
+        if (s.isEmpty())
             return true;
-        Stack<Character> stack=new Stack<Character>();
+        Stack<Character> stack = new Stack<Character>();
         //({[]})
-        for(char c:s.toCharArray()){
-            if(c=='(')
+        for (char c : s.toCharArray()) {
+            if (c == '(')
                 stack.push(')');
-            else if(c=='{')
+            else if (c == '{')
                 stack.push('}');
-            else if(c=='[')
+            else if (c == '[')
                 stack.push(']');
-            else if(stack.empty()||c!=stack.pop())
+            else if (stack.empty() || c != stack.pop())
                 return false;
         }
-        if(stack.empty())
+        if (stack.empty())
+            return true;
+        return false;
+    }
+
+    /**
+     * 算法第二次复盘，该题完美的切合了栈的先进后出，使用栈很容易实现
+     */
+    public static boolean isValid3(String str) {
+        if (str.isEmpty())
+            return true;
+
+        Stack<Character> stack = new Stack<>();
+        for (char c : str.toCharArray()) {
+            if (c == '(') {
+                stack.push(')');
+            }
+            if (c == '[') {
+                stack.push(']');
+            }
+            if (c == '{') {
+                stack.push('}');
+            }
+            if (stack.isEmpty() || c != stack.pop()) {
+                return false;
+            }
+        }
+
+        if (stack.isEmpty())
             return true;
         return false;
     }

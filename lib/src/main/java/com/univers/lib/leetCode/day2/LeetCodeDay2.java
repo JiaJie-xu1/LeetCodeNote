@@ -34,7 +34,7 @@ import java.util.Map;
  */
 public class LeetCodeDay2 {
     public static void main(String[] args) throws Exception {
-        System.out.println(getLongSubStr("aubcacsdfhaasdf"));
+        System.out.println(getLongestStr("aubcacsdfhaasdf"));
     }
 
     public static int lengthOfLongestSubstring(String s) {
@@ -78,5 +78,29 @@ public class LeetCodeDay2 {
             last[asciiTemp] = i + 1;
         }
         return maxLength;
+    }
+
+    /**
+     * 算法第二次复盘
+     */
+    public static int getLongestStr(String str) {
+
+        if (str.length() == 0 || str.length() == 1) {
+            return str.length();
+        }
+
+        //记录每个字符上次出现的位置
+        int[] last = new int[128];
+
+        int start = 0;//记录最长字符串开始的位置
+        int max = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            int c = str.charAt(i);//获取当前字符的ASCII码
+            start = Math.max(start, last[c]);
+            max = Math.max(max, i - start + 1);
+            last[c] = i + 1;
+        }
+        return max;
     }
 }
