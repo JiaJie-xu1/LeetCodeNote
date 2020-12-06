@@ -10,16 +10,16 @@ fun main(){
 fun threadtest(){
     var threadLocal : ThreadLocal<String> = ThreadLocal()
     threadLocal.run {
-        set("好")
+        set("java")
     }
     System.out.println(threadLocal.get()+"   "+Thread.currentThread())
     Thread{
-        threadLocal.set("我爱")
+        threadLocal.set("Android")
         System.out.println(threadLocal.get()+"   "+Thread.currentThread())
     }.start();
     System.out.println(threadLocal.get()+"   "+Thread.currentThread())
     Thread{
-        threadLocal.set("你")
+        threadLocal.set("flutter")
         System.out.println(threadLocal.get()+"   "+Thread.currentThread())
     }.start();
 }
