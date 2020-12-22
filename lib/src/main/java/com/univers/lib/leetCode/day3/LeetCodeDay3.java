@@ -19,7 +19,8 @@ import java.util.Stack;
  */
 public class LeetCodeDay3 {
     public static void main(String[] args) throws Exception {
-        System.out.println(isValid2("({[]})"));
+//        System.out.println(isValid2("({[]})"));
+        testThread();
     }
 
     public static boolean isValid(String s) {
@@ -80,5 +81,50 @@ public class LeetCodeDay3 {
         if (stack.isEmpty())
             return true;
         return false;
+    }
+
+    public static void testThread() {
+        Thread t1 = new Thread(){
+            @Override
+            public void run() {
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("t1   :" + Thread.currentThread() + ":" + i);
+                }
+            }
+        };
+
+        Thread t2 = new Thread() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("t2   :" + Thread.currentThread() + ":" + i);
+                }
+            }
+        };
+        Thread t3 = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("t3   :" + Thread.currentThread() + ":" + i);
+                }
+            }
+        };
+        try {
+            t3.start();
+            t3.join();
+
+            t2.start();
+            t2.join();
+
+            t1.start();
+            t1.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
