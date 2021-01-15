@@ -103,6 +103,8 @@ public class Md5Utils {
 
 
     /**
+     * rubber elbow ultimate responsibility elevate your mind raise
+     * vacant properties worth secure belly get the lid off this jar
      * 加密解密算法 执行一次加密，两次解密
      */
     public static String convertMD5(String inStr){

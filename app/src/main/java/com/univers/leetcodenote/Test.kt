@@ -1,5 +1,7 @@
 package com.univers.leetcodenote
 
+import android.database.Cursor
+
 /**
  * Created by Jay.Xu
  * @since 2020/12/6
@@ -22,4 +24,13 @@ fun threadtest(){
         threadLocal.set("flutter")
         System.out.println(threadLocal.get()+"   "+Thread.currentThread())
     }.start();
+}
+
+fun main2(){
+    val cursor : Cursor? = null
+
+    cursor?.use {
+        it.moveToNext()
+        var columnNames = it.columnNames
+    }
 }
