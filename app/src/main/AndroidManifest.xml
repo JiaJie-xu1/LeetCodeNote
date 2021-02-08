@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainAidlAcitivity">
+        <activity android:name="com.univers.canvas_view.MainAidlAcitivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -18,7 +18,7 @@
         </activity>
 
         <service
-            android:name=".AIDLService"
+            android:name="com.univers.canvas_view.AIDLService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.jayxu.aidlserver" />

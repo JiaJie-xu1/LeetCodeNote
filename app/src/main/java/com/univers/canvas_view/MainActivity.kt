@@ -1,4 +1,4 @@
-package com.univers.leetcodenote
+package com.univers.canvas_view
 
 import android.media.MediaDrm
 import android.os.Build
@@ -8,6 +8,7 @@ import android.os.Message
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.univers.leetcodenote.R
 import java.security.MessageDigest
 import java.util.*
 
@@ -29,8 +30,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        Log.e("xujj", "wid:${Md5Utils.getMD5String(getUniqueId())}")
-        Toast.makeText(this,"${Md5Utils.getMD5String(getUniqueId())}",Toast.LENGTH_SHORT).show()
+        Log.e("xujj", "wid:${Md5Utils.getMD5String(
+            getUniqueId()
+        )}")
+        Toast.makeText(this,"${Md5Utils.getMD5String(
+            getUniqueId()
+        )}",Toast.LENGTH_SHORT).show()
 
         handler.sendEmptyMessageDelayed(0, 20)
 

@@ -1,4 +1,4 @@
-package com.univers.leetcodenote
+package com.univers.canvas_view
 
 import android.app.Service
 import android.content.Intent

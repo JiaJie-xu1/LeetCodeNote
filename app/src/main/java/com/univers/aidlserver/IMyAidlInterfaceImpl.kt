@@ -9,7 +9,9 @@ import com.univers.aidlserver.IMyAidlInterface.Companion.TRANSACTION_LOGIN
 
 open class IMyAidlInterfaceImpl : Binder(), IMyAidlInterface {
 
-    override fun login(userName: String, password: String) {}
+    override fun login(userName: String, password: String) {
+
+    }
 
     override fun asBinder(): IBinder {
         return this
@@ -18,7 +20,7 @@ open class IMyAidlInterfaceImpl : Binder(), IMyAidlInterface {
     init{
         this.attachInterface(this, DESCRIPTOR)
     }
-
+    //sacrifice for the
     companion object{
         fun asInterface(obj: IBinder): IMyAidlInterface? {
             if (obj is IMyAidlInterface) {
@@ -47,7 +49,7 @@ open class IMyAidlInterfaceImpl : Binder(), IMyAidlInterface {
 
     }
 
-    class Proxy(val mRemote: IBinder) : IMyAidlInterface {
+    class Proxy(private val mRemote: IBinder) : IMyAidlInterface {
         fun getInterfaceDescription(): String {
             return DESCRIPTOR
         }
