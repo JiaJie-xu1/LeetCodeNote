@@ -17,7 +17,8 @@ public class LeetCodeDay10 {
     static int sum;
 
     public static void main(String[] args) {
-        partition("ssasas");
+        List<List<String>> ssasas = partition("ssasas");
+        System.out.print(ssasas);
     }
 
     public static List<List<String>> partition(String s) {
