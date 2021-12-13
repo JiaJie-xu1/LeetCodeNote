@@ -36,10 +36,10 @@ public class LeetCodeDay7 {
     public static boolean searchMatrix(int[][] matrix, int target) {
         int col = 0;
         int row = matrix.length - 1;
-        while (col < matrix[0].length && row > 0) {
+        while (col < matrix[0].length && row >= 0) {
             if (target > matrix[row][col]){
                 col ++;
-            }else if (target < matrix[row][row]){
+            }else if (target < matrix[row][col]){
                 row --;
             }else {
                 return true;
